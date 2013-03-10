@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Created by IntelliJ IDEA.
+  UserInt: sahmed
+  Date: 1/29/13
+  Time: 11:03 AM
+-->
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<f:metadata>
+    <f:viewParam name="user" value="#{userDelete.user}" converter="#{userConverter}"/>
+</f:metadata>
+
+<h:head>
+    <title>JavaEE6 - CRUD | Delete</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+</h:head>
+
+<h:body>
+    <div class="container">
+        <div>#{userDelete.delete()}</div>
+        <div><h:link outcome="index.html" value="Return Home"></h:link></div>
+    </div>
+</h:body>
+
+</html>

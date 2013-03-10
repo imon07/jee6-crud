@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Created by IntelliJ IDEA.
+  UserInt: sahmed
+  Date: 1/29/13
+  Time: 11:03 AM
+-->
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>JavaEE6 - CRUD | Home</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+</h:head>
+
+<h:body>
+    <div class="container">
+        <div class="form-container">
+            <a href="user/edit">Add user</a>
+            <h:dataTable border="1" var="user" value="#{index.userList}">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    #{user.id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">First name</f:facet>
+                    #{user.firstName}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Last name</f:facet>
+                    #{user.lastName}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                    #{user.email}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Edit</f:facet>
+                    <h:link outcome="user_edit.xhtml" value="Edit user">
+                        <f:param name="user" value="#{user.id}"/>
+                    </h:link>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Delete</f:facet>
+                    <h:link outcome="user_delete.xhtml" value="Delete user">
+                        <f:param name="user" value="#{user.id}" />
+                    </h:link>
+                </h:column>
+            </h:dataTable>
+        </div>
+    </div>
+</h:body>
+
+</html>

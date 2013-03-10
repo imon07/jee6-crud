@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Created by IntelliJ IDEA.
+  UserInt: sahmed
+  Date: 1/29/13
+  Time: 11:03 AM
+-->
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<f:metadata>
+    <f:viewParam name="user" value="#{userEdit.user}" converter="#{userConverter}" />
+</f:metadata>
+
+<h:head>
+    <title>JavaEE6 - CRUD | Edit</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+</h:head>
+
+<h:body>
+    <div class="container">
+        <div class="form-container">
+            <h:messages />
+            <h:form>
+                <h:panelGrid columns="2">
+                    <f:facet name="header">User</f:facet>
+
+                    <h:outputLabel value="Id" rendered="#{!empty userEdit.user.id}" />
+                    <h:outputLabel value="#{userEdit.user.id}" rendered="#{!empty userEdit.user.id}" />
+
+                    <h:outputLabel for="firstName" value="First name" />
+                    <h:inputText required="true" requiredMessage="First Name Required" id="firstName" value="#{userEdit.user.firstName}" label="First name" />
+
+                    <h:outputLabel for="lastName" value="Last name" />
+                    <h:inputText id="lastName" required="true" requiredMessage="Last Name Required" value="#{userEdit.user.lastName}" label="Last name"  />
+
+                    <h:outputLabel for="email" value="Email" />
+                    <h:inputText id="email" value="#{userEdit.user.email}" required="true" requiredMessage="Email Required" />
+
+                    <h:commandButton styleClass="btn btn-primary" action="#{userEdit.saveUser}" value="Submit" />
+                    <h:button styleClass="btn btn-danger" outcome="index.xhtml" value="Cancel"  />
+                </h:panelGrid>
+            </h:form>
+        </div>
+    </div>
+</h:body>
+
+</html>
